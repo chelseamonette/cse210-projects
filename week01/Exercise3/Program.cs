@@ -4,30 +4,39 @@ class Program
 {
     static void Main(string[] args)
     {
-        Random randomGenerator = new Random();
-        int magicNumber = randomGenerator.Next(1,100);
+        string wantToContinue;
+        do
+        {
+            Random randomGenerator = new Random();
+            int magicNumber = randomGenerator.Next(1,100);
 
-        int guessNumber;
-        int numberOfGuesses = 0;
-        do{
-        Console.Write("What is your guess? ");
-        string guess = Console.ReadLine();
-        guessNumber = int.Parse(guess);
+            int guessNumber;
+            int numberOfGuesses = 0;
+            do{
+            Console.Write("What is your guess? ");
+            string guess = Console.ReadLine();
+            guessNumber = int.Parse(guess);
 
-        if (guessNumber < magicNumber)
-        {
-            Console.WriteLine("Higher");
-        }
-        else if (guessNumber > magicNumber)
-        {
-            Console.WriteLine("Lower");
-        }
-        else
-        {
-            Console.WriteLine("You guessed it!");
-        }
-        numberOfGuesses += 1;
-        } while (guessNumber != magicNumber);
-        Console.WriteLine($"You had {numberOfGuesses} total guesses.");
+            if (guessNumber < magicNumber)
+            {
+                Console.WriteLine("Higher");
+            }
+            else if (guessNumber > magicNumber)
+            {
+                Console.WriteLine("Lower");
+            }
+            else
+            {
+                Console.WriteLine("You guessed it!");
+            }
+            numberOfGuesses += 1;
+            } while (guessNumber != magicNumber);
+
+            Console.WriteLine($"You had {numberOfGuesses} total guesses.");
+            
+            Console.Write("Would you like to continue? ");
+            wantToContinue = Console.ReadLine();
+        } while (wantToContinue == "yes");
     }
+
 }
