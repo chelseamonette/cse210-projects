@@ -7,9 +7,9 @@ class Program
         Console.Write("What grade percentage do you have? ");
         string gradePercentage = Console.ReadLine();
         int grade = int.Parse(gradePercentage);
-        string letterGrade = grade.ToString();
+        string letterGrade;
 
-        if (grade >= 90)
+        if (grade >= 90 )
         {
             letterGrade = "A";
         }
@@ -30,7 +30,22 @@ class Program
             letterGrade = "F";
         }
 
-        Console.WriteLine($"You earned a {letterGrade}");
+        int gradeExtra = grade % 10;
+        string plusOrMinus;
+        if (gradeExtra >= 7 && grade < 90 && grade > 60)
+        {
+            plusOrMinus = "+";
+        }
+        else if (gradeExtra < 3 && grade > 60)
+        {
+            plusOrMinus = "-";
+        }
+        else
+        {
+            plusOrMinus = "";
+        }
+
+        Console.WriteLine($"You earned a {letterGrade}{plusOrMinus}");
 
         if (grade >= 70)
         {
