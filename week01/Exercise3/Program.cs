@@ -8,6 +8,7 @@ class Program
         int magicNumber = randomGenerator.Next(1,100);
 
         int guessNumber;
+        int numberOfGuesses = 0;
         do{
         Console.Write("What is your guess? ");
         string guess = Console.ReadLine();
@@ -25,6 +26,8 @@ class Program
         {
             Console.WriteLine("You guessed it!");
         }
+        numberOfGuesses += 1;
         } while (guessNumber != magicNumber);
+        Console.WriteLine($"You had {numberOfGuesses} total guesses.");
     }
 }
