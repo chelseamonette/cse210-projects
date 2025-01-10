@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 
 class Program
 {
@@ -37,5 +38,14 @@ class Program
 
         int smallestPositive = positiveNumbers.Min();
         Console.WriteLine($"The smallest positive number is: {smallestPositive}");
+
+        numbers.Sort();
+
+        foreach (int number in numbers)
+        {
+            Console.WriteLine(number);
+        }
+
     }
+    
 }
