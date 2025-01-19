@@ -20,7 +20,7 @@ public class Entry
     // Display() : void
     void Display()
     {
-
+        
     }
 
 }

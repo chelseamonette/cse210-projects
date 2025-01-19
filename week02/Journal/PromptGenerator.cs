@@ -4,7 +4,7 @@ using System.Reflection.Metadata.Ecma335;
 public class PromptGenerator
 {
     //_prompts : List<string>
-    private static List<string> _prompts = new List<string>
+    private static List<string> _prompts = new List<string>()
     {
         "Who was the most interesting person I interacted with today?",
         "What was the best part of my day?",
@@ -20,7 +20,15 @@ public class PromptGenerator
     //GetRandomPrompt() : string
     public static string GetRandomPrompt()
     {
-        return "";
+        // Random object
+        Random random = new Random();
+
+        // Get random index
+        int index = random.Next(_prompts.Count);
+
+        // Return random prompt
+        return(_prompts[index]);
+
     }
    
 }
