@@ -1,4 +1,6 @@
 // Supplies random prompts whenever needed
+using System.Reflection.Metadata.Ecma335;
+
 public class PromptGenerator
 {
     //_prompts : List<string>
@@ -8,8 +10,8 @@ public class PromptGenerator
         "What was the best part of my day?",
         "How did I see the hand of the Lord in my life today?",
         "What was the strongest emotion I felt today?",
-        "If I had one thing I could do over today, what would it be?",
-    }
+        "If I had one thing I could do over today, what would it be?"
+    };
 
     //GetRandomPrompt() : string
     public static string GetRandomPrompt()

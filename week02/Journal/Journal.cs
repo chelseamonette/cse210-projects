@@ -5,7 +5,7 @@
 public class Journal
 {
     // _entries : List<Entry>
-    public List<Entry> _entries = new List<Entry>();
+    public List<Entry> _entries = new();
 
     //AddEntry(newEntry : Entry) : void
     public void CreateNewEntry()
@@ -25,13 +25,13 @@ public class Journal
     }
 
     //SaveToFile(file : string)
-    public void SaveToFile(file : string)
+    public void SaveToFile()
     {
 
     }
 
     //LoadFromFile(file : string)
-    public void LoadFromFile(file : string)
+    public void LoadFromFile()
     {
 
     }
