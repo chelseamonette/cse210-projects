@@ -10,7 +10,11 @@ public class PromptGenerator
         "What was the best part of my day?",
         "How did I see the hand of the Lord in my life today?",
         "What was the strongest emotion I felt today?",
-        "If I had one thing I could do over today, what would it be?"
+        "If I had one thing I could do over today, what would it be?",
+        "What is one thing that I am especially grateful to God for today?",
+        "What challenges did I face today and how did I overcome them?",
+        "What could I have done differently today?"
+
     };
 
     //GetRandomPrompt() : string

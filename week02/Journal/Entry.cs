@@ -10,7 +10,9 @@ public class Entry
     public string _entryText = "";
     public Entry(string promptText, string entryText)
     {
-        _date  = new DateTime().ToString();
+        DateTime theCurrentTime = DateTime.Now;
+        string dateText = theCurrentTime.ToShortDateString();
+        _date  = dateText;
         _promptText = promptText;
         _entryText = entryText;
         
