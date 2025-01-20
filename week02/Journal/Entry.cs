@@ -18,9 +18,9 @@ public class Entry
         
     }
     // Display() : void
-    void Display()
+    public void Display()
     {
-        
+       Console.WriteLine($"{_date} - {_promptText}: {_entryText}");
     }
 
 }

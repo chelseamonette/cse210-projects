@@ -28,7 +28,7 @@ class Program
             // Display Journal
             else if (userInput == "2")
             {
-                Console.WriteLine("Display Journal");
+                journal.DisplayAll();
             }
 
             // Save the Journal

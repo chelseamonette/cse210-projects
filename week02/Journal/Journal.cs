@@ -2,6 +2,8 @@
 // add an entry, display all the entries, save to a file,
 // and load from a file.  Display method iterates through 
 // all Entry object and call the Entry display method.
+using System.ComponentModel.DataAnnotations;
+
 public class Journal
 {
     // _entries : List<Entry>
@@ -21,6 +23,10 @@ public class Journal
     //DisplayAll() : void
     public void DisplayAll()
     {
+      foreach(Entry entry in _entries)
+      {
+        entry.Display();
+      }
         
     }
 
