@@ -9,6 +9,7 @@ public class Journal
 {
     // Declare variables
     string fileName = "myFile.txt";
+    
 
     // _entries : List<Entry>
     public List<Entry> _entries = new();
@@ -54,6 +55,12 @@ public class Journal
     //LoadFromFile(file : string)
     public void LoadFromFile()
     {
+        // Prompt user for the name of the file they would like to load
+        Console.WriteLine("Name of the .txt file that you would like ");
+        fileName = Console.ReadLine();
+
+        // Use the "System.IO.File.ReadAllLines()" function to read file.
+        string[] lines = System.IO.File.ReadAllLines(fileName);
 
     }
 }

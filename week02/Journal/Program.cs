@@ -41,7 +41,7 @@ class Program
             // Load a Journal
             else if (userInput == "4")
             {
-                Console.WriteLine("Load the journal from a file");
+                journal.LoadFromFile();
             }
 
             // Quit
