@@ -8,19 +8,20 @@ public class Entry
     public string _promptText = "";
     //_entryText : string
     public string _entryText = "";
-    public Entry(string promptText, string entryText)
+    public string _mood = "";
+    public Entry(string promptText, string entryText, string mood)
     {
         DateTime theCurrentTime = DateTime.Now;
         string dateText = theCurrentTime.ToShortDateString();
         _date  = dateText;
         _promptText = promptText;
         _entryText = entryText;
-        
+        _mood = mood;
     }
     // Display() : void
     public void Display()
     {
-       Console.WriteLine($"{_date} - {_promptText}: {_entryText}");
+       Console.WriteLine($"{_date} - Mood: {_mood}; {_promptText}: {_entryText}");
     }
 
 }

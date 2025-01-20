@@ -17,11 +17,13 @@ public class Journal
     //AddEntry(newEntry : Entry) : void
     public void CreateNewEntry()
     {
+        Console.Write("What mood/s are you in today? ");
+        string mood = Console.ReadLine();
         string prompt = PromptGenerator.GetRandomPrompt();
-        Console.WriteLine(prompt);
-        Console.WriteLine("Write the text of your entry as a single string.");
+        Console.Write(prompt);
+        Console.WriteLine("(Write the text of your entry as a single string.)");
         string entryText = Console.ReadLine();
-        Entry entry = new(prompt, entryText);
+        Entry entry = new(prompt, entryText, mood);
         _entries.Add(entry);
     }
 
@@ -39,7 +41,7 @@ public class Journal
     public void SaveToFile()
     {
         //Prompt user for the name of the file that they would like to save to
-        Console.Write("Name of the .txt file that you would like to save to: ");
+        Console.Write("Name of the file that you would like to save to: ");
         fileName = Console.ReadLine();
 
         // Us "using" to make sure that the file gets closed and cleaned up
