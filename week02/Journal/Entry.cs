@@ -8,6 +8,8 @@ public class Entry
     public string _promptText = "";
     //_entryText : string
     public string _entryText = "";
+
+    // Mood Added for Creativity
     public string _mood = "";
     public Entry(string promptText, string entryText, string mood)
     {
