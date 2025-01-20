@@ -37,6 +37,10 @@ public class Journal
     //SaveToFile(file : string)
     public void SaveToFile()
     {
+        //Prompt user for the name of the file that they would like to save to
+        Console.Write("Name of the .txt file that you would like to save to: ");
+        fileName = Console.ReadLine();
+
         // Us "using" to make sure that the file gets closed and cleaned up
         // when you are done.  Put StreamWriter object in block and use the 
         // same Write() and WriteLine() methods the same as Console.Write()
