@@ -3,9 +3,13 @@
 // and load from a file.  Display method iterates through 
 // all Entry object and call the Entry display method.
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 
 public class Journal
 {
+    // Declare variables
+    string fileName = "myFile.txt";
+
     // _entries : List<Entry>
     public List<Entry> _entries = new();
 
@@ -33,6 +37,13 @@ public class Journal
     //SaveToFile(file : string)
     public void SaveToFile()
     {
+        // Us "using" to make sure that the file gets closed and cleaned up
+        // when you are done.  Put StreamWriter object in block and use the 
+        // same Write() and WriteLine() methods the same as Console.Write()
+        using(StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            outputFile.WriteLine(_entries);
+        }
 
     }
 

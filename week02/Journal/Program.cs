@@ -1,5 +1,6 @@
 using System;
 
+
 class Program
 {
     static void Main(string[] args)
@@ -34,7 +35,7 @@ class Program
             // Save the Journal
             else if (userInput == "3")
             {
-                Console.WriteLine("Save the journal to a file");
+                journal.SaveToFile();
             }
 
             // Load a Journal
