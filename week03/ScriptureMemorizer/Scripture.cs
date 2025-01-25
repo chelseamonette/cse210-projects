@@ -14,6 +14,8 @@ public class Scripture
     // the text of the scripture
     public Scripture(Reference reference, string word)
     {
+        reference = _reference;
+        
 
     }
 
