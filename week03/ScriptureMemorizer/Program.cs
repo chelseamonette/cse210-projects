@@ -39,8 +39,30 @@ class Program
     static void Main(string[] args)
     {
         // Store scripture
-        Scripture scripture = new Scripture();
-        
+        Reference referenceShort = new Reference("D&C", 10, 5);
+        Scripture scriptureShort = new Scripture(referenceShort, "Pray always, that you may come off conqueror; yea, that you may conquer Satan, and that you may escape the hands of the servants of Satan that do uphold his work.");
+
+        // Accomodate scriptures with multiple verses
+        Reference referenceLong = new Reference("Matthew", 11, 28, 30);
+        Scripture scriptureLong = new Scripture(referenceLong, "Come unto me, all ye that labour and are heacy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.");
+
+        // Clear the console screen and display the complete scripture
+        Console.WriteLine($"{referenceShort} {scriptureShort}");
+
+        // Prompt the user to press the enter key or type to quit.
+        Console.WriteLine("Press enter to continue or type 'quit' to finish:");
+        string userChoice = Console.ReadLine();
+
+        // If the user types quit, the program should end
+        if (userChoice == "quit" || userChoice == "Quit"){
+            return;
+        }
+        // If user presses enter key without typing quit, the program
+        // should hide a few random words in scripture
+        else if (userChoice == ""){
+
+
+        }
 
         
         

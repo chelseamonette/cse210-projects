@@ -34,6 +34,6 @@ public class Scripture
     // CompletelyHidden(): bool
     public bool CompletelyHidden(){
 
-        return true;
+        return false;
     }
 }
