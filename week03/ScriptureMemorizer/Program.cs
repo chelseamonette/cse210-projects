@@ -46,25 +46,35 @@ class Program
         Reference referenceLong = new Reference("Matthew", 11, 28, 30);
         Scripture scriptureLong = new Scripture(referenceLong, "Come unto me, all ye that labour and are heacy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.");
 
-        // Clear the console screen and display the complete scripture
-        Console.WriteLine($"{referenceShort} {scriptureShort}");
+        // Create while loop to Clear screen and start program
+        while(true){
 
-        // Prompt the user to press the enter key or type to quit.
-        Console.WriteLine("Press enter to continue or type 'quit' to finish:");
-        string userChoice = Console.ReadLine();
+            // Clear the console screen and display the complete scripture
+            Console.Clear();
+            Console.WriteLine(scriptureShort.GetDisplayText());
 
-        // If the user types quit, the program should end
-        if (userChoice == "quit" || userChoice == "Quit"){
-            return;
+            // Add while loop to continue to display scripture until all words are hidden
+            while(scriptureShort.CompletelyHidden() == false){
+
+                // Clear console screen and display the scripture with hidden words
+                Console.Clear();
+                Console.WriteLine(scriptureShort.GetDisplayText());
+                
+                // Prompt the user to press the enter key or type to quit.
+                Console.WriteLine("Press enter to continue or type 'quit' to finish:");
+                string userChoice = Console.ReadLine();
+
+                // If the user types quit, the program should end
+                if (userChoice == "quit" || userChoice == "Quit"){
+                    return;
+                }
+                // If user presses enter key without typing quit, the program
+                // should hide a few random words in scripture
+                else if (userChoice == ""){
+                    scriptureShort.HideRandomWords(2);
+                }
+            }
         }
-        // If user presses enter key without typing quit, the program
-        // should hide a few random words in scripture
-        else if (userChoice == ""){
-
-
-        }
-
-        
         
     }
 }

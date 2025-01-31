@@ -14,7 +14,8 @@ public class Scripture
     // the text of the scripture
     public Scripture(Reference reference, string word)
     {
-        Reference reference1 = new Reference();
+        _reference = reference;
+        _words = new List<Word>();
         
         
 
@@ -29,7 +30,7 @@ public class Scripture
     // GetDisplayText(): string
     public string GetDisplayText(){
 
-        return "";
+        Console.Write($"{_reference}: {_words}");
     }
 
     // CompletelyHidden(): bool
