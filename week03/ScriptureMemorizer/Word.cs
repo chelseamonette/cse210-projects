@@ -14,30 +14,33 @@ public class Word
     public Word(string text)
     {   
         _text = text;
-        int letters = text.Length;
-        
     }
 
     // HideWord(): void
     public void HideWord(){
-        foreach(int letter in letters)
+        string hiddenWord = new string('_',_text.Length);
     }
 
     // ShowWord(): void
     public void ShowWord(){
-
+        Console.Write(_text);
     }
 
     // IsHidden(): bool
     public bool IsHidden(){
-
-        return true;
+        if(_isHidden){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     // GetDisplayText(): string
     public string GetDisplayText(){
         if (_isHidden){
-           string word = 
+           string word = _text.HideWord();
+           return word;
         }
         else if (_isHidden == false){
             string word = $"{_text}";
