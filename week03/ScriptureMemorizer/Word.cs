@@ -16,6 +16,12 @@ public class Word
         _text = text;
     }
 
+    /*The key behaviors for the Word class are to hide and show a
+     word and to check if a word is hidden or not. In addition, a 
+     Word should have a behavior to get the display text of that word,
+      which would be either the word itself (for example, "prayer") 
+      or, if the word were hidden, this behavior would return 
+      underscores (for example, "______").*/
     // HideWord(): void
     public void HideWord(){
         _isHidden = true;
@@ -29,20 +35,21 @@ public class Word
 
     // IsHidden(): bool
     public bool IsHidden(){
-        if(_isHidden){
+       if (){
             return true;
-        }
-        else{
+       }
+       else if ()(
             return false;
-        }
+       )
     }
 
     // GetDisplayText(): string
     public string GetDisplayText(){
-        if (_isHidden){
-           return Word(_text).HideWord;
+        if (IsHidden()){
+            string hiddenWord = new string('_',_text.Length);
+            return hiddenWord;
         }
-        else if (_isHidden == false){
+        else{
             return _text;
         }
     }
