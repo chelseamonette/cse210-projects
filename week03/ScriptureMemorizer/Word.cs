@@ -12,13 +12,15 @@ public class Word
     // Constructor that should accept the text of the
     // word to save it as an attribute.
     public Word(string text)
-    {
-
+    {   
+        _text = text;
+        int letters = text.Length;
+        
     }
 
     // HideWord(): void
     public void HideWord(){
-
+        foreach(int letter in letters)
     }
 
     // ShowWord(): void
@@ -34,7 +36,12 @@ public class Word
 
     // GetDisplayText(): string
     public string GetDisplayText(){
-
-        return "";
+        if (_isHidden){
+           string word = 
+        }
+        else if (_isHidden == false){
+            string word = $"{_text}";
+            return word;
+        }
     }
 }
