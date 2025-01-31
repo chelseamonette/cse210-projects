@@ -18,12 +18,13 @@ public class Word
 
     // HideWord(): void
     public void HideWord(){
-        string hiddenWord = new string('_',_text.Length);
+        _isHidden = true;
+        
     }
 
     // ShowWord(): void
     public void ShowWord(){
-        Console.Write(_text);
+        _isHidden = false;
     }
 
     // IsHidden(): bool
@@ -39,12 +40,10 @@ public class Word
     // GetDisplayText(): string
     public string GetDisplayText(){
         if (_isHidden){
-           string word = _text.HideWord();
-           return word;
+           return Word(_text).HideWord;
         }
         else if (_isHidden == false){
-            string word = $"{_text}";
-            return word;
+            return _text;
         }
     }
 }

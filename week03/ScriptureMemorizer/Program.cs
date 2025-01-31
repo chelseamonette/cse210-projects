@@ -59,20 +59,26 @@ class Program
                 // Clear console screen and display the scripture with hidden words
                 Console.Clear();
                 Console.WriteLine(scriptureShort.GetDisplayText());
-                
+
                 // Prompt the user to press the enter key or type to quit.
                 Console.WriteLine("Press enter to continue or type 'quit' to finish:");
                 string userChoice = Console.ReadLine();
 
                 // If the user types quit, the program should end
                 if (userChoice == "quit" || userChoice == "Quit"){
-                    return;
+                    break;
                 }
                 // If user presses enter key without typing quit, the program
                 // should hide a few random words in scripture
                 else if (userChoice == ""){
                     scriptureShort.HideRandomWords(2);
+
+                    // Once all words have been hidden, quit program
+                    if (scriptureShort.CompletelyHidden()){
+                        break;
+                    }
                 }
+                
             }
         }
         

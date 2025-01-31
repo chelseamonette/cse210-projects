@@ -18,6 +18,7 @@ public class Scripture
         _words = new List<Word>();
         
         
+        
 
     }
 
