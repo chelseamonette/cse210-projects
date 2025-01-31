@@ -71,7 +71,7 @@ class Program
                 // If user presses enter key without typing quit, the program
                 // should hide a few random words in scripture
                 else if (userChoice == ""){
-                    scriptureShort.HideRandomWords(2);
+                    scriptureShort.HideRandomWords(3);
 
                     // Once all words have been hidden, quit program
                     if (scriptureShort.CompletelyHidden()){
