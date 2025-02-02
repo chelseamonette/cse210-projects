@@ -11,9 +11,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Video video1 = new Video();
-        Video video2 = new Video();
-        Video video3 = new Video();
+        List<Video> = 
+
+        
 
         
     }

@@ -14,6 +14,17 @@ public string _author;
 public string _length;
 public List<string> _commentList;
 
+public List<string> CommentList(string title, string author, string length){
+    _title = title;
+    _author = author;
+    _length = length;
+    List<string> _commentList = new();
+    _commentList.Add(_title);
+    _commentList.Add(_author);
+    _commentList.Add(_length);
+    return _commentList;
+}
+
 public int NumberOfComments(){
     int commentCounter = _commentList.Count();
     return commentCounter;
