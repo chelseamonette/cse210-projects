@@ -43,9 +43,8 @@ class Program
         in the list.*/
         foreach(Video video in videos)
         {
-            Console.WriteLine($"{video.VideoInfo}, Number of Comments: {video.NumberOfComments}");
+            Console.WriteLine($"{video.VideoInfo}");
         }
-        
         
     }
 }

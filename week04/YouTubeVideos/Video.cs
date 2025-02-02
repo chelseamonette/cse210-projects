@@ -38,10 +38,6 @@ public void DisplayComments(Comment comment)
 }
 public int NumberOfComments()
 {
-    int commentCounter = 0;
-    foreach(Comment comment in _commentList){
-        commentCounter = commentCounter + 1;
-    }
-    return commentCounter;
+    return _commentList.Count();
 }
 }
