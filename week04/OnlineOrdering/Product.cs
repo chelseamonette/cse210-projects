@@ -33,4 +33,10 @@ public void SetProductName(string name){
 public int GetProductID(){
     return _productID;
 }
+public double GetPrice(){
+    return _price;
+}
+public int GetQuantity(){
+    return _quantity;
+}
 }

@@ -6,6 +6,7 @@
 they live in the USA or not. (Hint this should call a method on 
 the address to find this.)*/
 using System;
+using System.Dynamic;
 
 public class Customer{
 private string _customerName;
@@ -19,5 +20,8 @@ public bool LivesInUSA(){
 }
 public string GetCustomerName(){
     return _customerName;
+}
+public Address GetCustomerAddress(){
+    return _address;
 }
 }

@@ -19,6 +19,7 @@ using System;
 public class Order{
 private List<Product> _productList;
 private Customer _customer;
+
 public Order(Customer customer){
     _customer = customer;
     _productList = new List<Product>();
@@ -41,23 +42,26 @@ public double CalculateTotalCost(){
         return costPlusShipping;
     }
 }
-public List<string> PackingLabel(Product product){
-    List<string> packingList = new();
+public string PackingLabel(Product product){
+    
+    string packingLabel = "Packing Slip: \n";
     foreach(var products in _productList){
         string productName = product.GetProductName();
         int productID = product.GetProductID();
-        string packingLabel = $"Name: {productName} ID: {productID}";
-        packingList.Add(packingLabel);
+        
     }
-    return packingList; 
+    
 }
-public List<string> ShippingLabel(Customer customer, Address address){
-    List<string> shippingList = new();
-    shippingList.Add($"{customer.GetCustomerName}");
-    shippingList.Add($"{address.CreateAddress}");
-    return shippingList;
+public string ShippingLabel(Customer customer, Address address){
+    return $"{customer.GetCustomerName()}\n{address.CreateAddress()}";
 }
 public List<Product> GetProductList(){
     return _productList;
+}
+public Customer GetCustomer(){
+    return _customer;
+}
+public Address GetAddress(){
+    return _customer.GetCustomerAddress();
 }
 }
