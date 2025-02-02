@@ -15,25 +15,46 @@ in the order.
 5. A shipping label should list the name and address of the customer.*/
 
 using System;
-using System.Net.Http.Headers;
-using System.Runtime.InteropServices.Marshalling;
 
 public class Order{
-private int _quantity;
 private List<Product> _productList;
 private Customer _customer;
-public Order(Customer customer, int quantity){
+public Order(Customer customer){
     _customer = customer;
-    _quantity = quantity;
-    List<Product> _productList = new List<Product>();
+    _productList = new List<Product>();
+}
+public void CreateProductList(Product product){
+    _productList.Add(product);
 }
 public float CalculateTotalCost(){
-    return 0;
+    float productCost = 0;
+    foreach(var product in _productList){
+        float totalCost = product.ComputeTotalCost() + productCost;
+        return productCost;
+    }
+    if(_customer.LivesInUSA()){
+        float costPlusShipping = productCost + 5;
+        return costPlusShipping;
+    }
+    else{
+        float costPlusShipping = productCost + 35;
+        return costPlusShipping;
+    }
 }
-public string PackingLabel(){
-    return "";
+public List<string> PackingLabel(Product product){
+    List<string> packingList = new();
+    foreach(var products in _productList){
+        string productName = product.GetProductName();
+        int productID = product.GetProductID();
+        string packingLabel = $"Name: {productName} ID: {productID}";
+        packingList.Add(packingLabel);
+    }
+    return packingList; 
 }
-public string ShippingLabel(){
-    return"";
+public List<string> ShippingLabel(Customer customer, Address address){
+    List<string> shippingList = new();
+    shippingList.Add($"{customer.GetCustomerName}");
+    shippingList.Add($"{address.CreateAddress}");
+    return shippingList;
 }
 }

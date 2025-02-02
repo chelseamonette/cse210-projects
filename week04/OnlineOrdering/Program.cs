@@ -8,9 +8,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Order order1 = new Order(new Customer("Chelsea Monette",(new Address("4855 Pradera St", "Sparks", "NV", "USA"))), 3);
-        Order order2 = new Order(new Customer("Maria Monette", (new Address("236 S 860 W", "Rexburg", "ID", "USA"))), 2);
-        Order order3 = new Order(new Customer("Valerie Monette", (new Address("495 Riverdale Cir", "Verdi", "NV", "USA"))), 5);
+        Order order1 = new Order(new Customer("Chelsea Monette",(new Address("4855 Pradera St", "Sparks", "NV", "USA"))));
+        Order order2 = new Order(new Customer("Maria Monette", (new Address("236 S 860 W", "Rexburg", "ID", "USA"))));
+        Order order3 = new Order(new Customer("Valerie Monette", (new Address("495 Riverdale Cir", "Verdi", "NV", "USA"))));
 
         List<Order> orders = new();
         orders.Add(order1);

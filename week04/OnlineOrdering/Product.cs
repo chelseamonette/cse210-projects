@@ -8,16 +8,26 @@ using System;
 
 public class Product{
 private string _name;
+private int _productID;
 private float _price;
 private int _quantity;
 
-public Product(string name, float price, int quantity){
+public Product(string name, int productID, float price, int quantity){
     _name = name;
     _price = price;
     _quantity = quantity;
+    _productID = productID;
 }
 public float ComputeTotalCost(){
     float totalCost = _price * _quantity;
     return totalCost;
+}
+
+public string GetProductName(){
+    return _name;
+}
+
+public int GetProductID(){
+    return _productID;
 }
 }
