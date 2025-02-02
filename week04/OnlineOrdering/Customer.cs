@@ -15,6 +15,6 @@ public Customer(string customerName, Address address){
     _address = address;
 }
 public bool LivesInUSA(){
-    return true;
+    return _address.LivesInUSA();
 }
 }
