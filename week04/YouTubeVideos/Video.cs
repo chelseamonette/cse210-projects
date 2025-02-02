@@ -14,7 +14,7 @@ public class Video{
 private string _title;
 private string _author;
 private int _length;
-private List<Comment> _commentList;
+public List<Comment> _commentList;
 
 public Video(string title, string author, int length)
 {
@@ -31,9 +31,9 @@ public void StoreComments(Comment comment)
 {
     _commentList.Add(comment);
 }
-public void DisplayComments(Comment comment)
+public string DisplayComments(Comment comment)
 {
-    Console.Write(comment);
+    return $"Name: {comment._name}, Comment: {comment._text}";
 }
 public int NumberOfComments()
 {

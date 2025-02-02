@@ -46,8 +46,11 @@ class Program
         {
             Console.WriteLine(video.VideoInfo());
             Console.WriteLine($"Number of Comments: {video.NumberOfComments()}");
-
             
+            foreach(var comment in video._commentList){
+                Console.WriteLine("Comments:");
+                Console.WriteLine($"Name: {comment._name} Comment: {comment._text}");
+            }
         }
         
     }
