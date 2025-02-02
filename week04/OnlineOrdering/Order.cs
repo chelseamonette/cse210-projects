@@ -15,6 +15,7 @@ in the order.
 5. A shipping label should list the name and address of the customer.*/
 
 using System;
+using System.Numerics;
 
 public class Order{
 private List<Product> _productList;
@@ -31,16 +32,17 @@ public double CalculateTotalCost(){
     double productCost = 0;
     foreach(var product in _productList){
         productCost += product.ComputeTotalCost();
-        return productCost;
+        return productCost; 
     }
     if(_customer.LivesInUSA()){
-        double costPlusShipping = productCost + 5;
+        double costPlusShipping =  productCost + 5;
         return costPlusShipping;
     }
     else{
         double costPlusShipping = productCost + 35;
         return costPlusShipping;
     }
+    
 }
 public string PackingLabel(){
     

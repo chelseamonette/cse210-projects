@@ -35,11 +35,8 @@ class Program
             Console.WriteLine($"Order Number: {orderCounter}");
             Console.WriteLine(order.PackingLabel());
             Console.WriteLine(order.ShippingLabel(order.GetCustomer(), order.GetAddress()));
+            Console.WriteLine($"Order Total: ${order.CalculateTotalCost()}");               
 
-            foreach(var product in order.GetProductList()){
-                
-                Console.WriteLine(order.CalculateTotalCost());
-            }
             Console.WriteLine();
             
             orderCounter = orderCounter + 1;
