@@ -42,12 +42,12 @@ public double CalculateTotalCost(){
         return costPlusShipping;
     }
 }
-public string PackingLabel(Product product){
+public string PackingLabel(){
     
     string packingLabel = "Packing Slip: \n";
     foreach(var products in _productList){
-        string productName = product.GetProductName();
-        int productID = product.GetProductID();
+        string productName = products.GetProductName();
+        int productID = products.GetProductID();
         packingLabel += $"Name: {productName} - ID: {productID}";
     }
     return packingLabel;

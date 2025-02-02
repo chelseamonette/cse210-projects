@@ -33,9 +33,9 @@ class Program
         foreach(var order in orders){
 
             Console.WriteLine($"Order Number: {orderCounter}");
-            
+            Console.WriteLine(order.PackingLabel());
+
             foreach(var product in order.GetProductList()){
-                Console.WriteLine(order.PackingLabel(product));
                 Console.WriteLine(order.ShippingLabel(order.GetCustomer(), order.GetAddress()));
                 Console.WriteLine(order.CalculateTotalCost());
             }
