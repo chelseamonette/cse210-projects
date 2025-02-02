@@ -21,9 +21,14 @@ public class Address{
         _country = country;
     }
     public bool LivesInUSA(){
-        return true;
+        if (_country == "USA"){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     public string CreateAddress(){
-        return "";
+        return $"{_streetAddress}\n{_city}, {_stateOrProvince}, {_country}";
     }
 }
