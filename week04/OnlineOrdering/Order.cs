@@ -28,9 +28,9 @@ public void CreateProductList(Product product){
     _productList.Add(product);
 }
 public double CalculateTotalCost(){
-    float productCost = 0;
+    double productCost = 0;
     foreach(var product in _productList){
-        double totalCost = product.ComputeTotalCost() + productCost;
+        productCost += product.ComputeTotalCost();
         return productCost;
     }
     if(_customer.LivesInUSA()){
