@@ -26,18 +26,18 @@ public Order(Customer customer){
 public void CreateProductList(Product product){
     _productList.Add(product);
 }
-public float CalculateTotalCost(){
+public double CalculateTotalCost(){
     float productCost = 0;
     foreach(var product in _productList){
-        float totalCost = product.ComputeTotalCost() + productCost;
+        double totalCost = product.ComputeTotalCost() + productCost;
         return productCost;
     }
     if(_customer.LivesInUSA()){
-        float costPlusShipping = productCost + 5;
+        double costPlusShipping = productCost + 5;
         return costPlusShipping;
     }
     else{
-        float costPlusShipping = productCost + 35;
+        double costPlusShipping = productCost + 35;
         return costPlusShipping;
     }
 }
@@ -56,5 +56,8 @@ public List<string> ShippingLabel(Customer customer, Address address){
     shippingList.Add($"{customer.GetCustomerName}");
     shippingList.Add($"{address.CreateAddress}");
     return shippingList;
+}
+public List<Product> GetProductList(){
+    return _productList;
 }
 }
