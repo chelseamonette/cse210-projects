@@ -15,6 +15,7 @@ class Program
         creates 3-4 videos, sets the appropriate values, and for each 
         one add a list of 3-4 comments (with the commenter's name and 
         text). Put each of these videos in a list.*/
+        List<Video> videos = new List<Video>();
         Video video1 = new Video("Easy Updo for Short to Medium Hair", "Another Braid", 71);
         video1.StoreComments(new Comment("@launijohnson2683", "I'm terrible with hair and I was actually able to do this! Mine wasn't so perfect but good enough to wear as a wedding guest. Thank you!!"));
         video1.StoreComments(new Comment("@pinokoyokoyama8131", "fake hair is easy to do, real hair is not this easy to control especially for smooth silky hair."));
@@ -31,7 +32,7 @@ class Program
         video3.StoreComments(new Comment("@stanlane1694", "Me being a broken vessel know in my heart one day I will be healed both mentally and physically....thank you Br. Holland, i love you."));
         
 
-        List<Video> videos = new();
+        
         videos.Add(video1);
         videos.Add(video2);
         videos.Add(video3); 
@@ -43,7 +44,7 @@ class Program
         in the list.*/
         foreach(Video video in videos)
         {
-            Console.WriteLine($"{video.VideoInfo}");
+            Console.WriteLine(video.NumberOfComments());
         }
         
     }
