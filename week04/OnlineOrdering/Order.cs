@@ -48,7 +48,7 @@ public string PackingLabel(){
     foreach(var products in _productList){
         string productName = products.GetProductName();
         int productID = products.GetProductID();
-        packingLabel += $"Name: {productName} - ID: {productID}";
+        packingLabel += $"Product: {productName} - ID: {productID}\n";
     }
     return packingLabel;
     
