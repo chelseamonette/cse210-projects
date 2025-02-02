@@ -5,8 +5,7 @@ also has responsibility to store a list of comments,
 and should have a method to return the number of 
 comments.*/
 using System;
-using System.ComponentModel;
-using System.Transactions;
+
 
 
 public class Video{
