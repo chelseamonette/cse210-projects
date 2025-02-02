@@ -42,9 +42,12 @@ class Program
         of comments(from the method) and then list out all of the 
         comments for that video. Repeat this display for each video 
         in the list.*/
-        foreach(Video video in videos)
+        foreach(var video in videos)
         {
-            Console.WriteLine(video.NumberOfComments());
+            Console.WriteLine(video.VideoInfo());
+            Console.WriteLine($"Number of Comments: {video.NumberOfComments()}");
+
+            
         }
         
     }
