@@ -5,28 +5,39 @@ also has responsibility to store a list of comments,
 and should have a method to return the number of 
 comments.*/
 using System;
+using System.ComponentModel;
+using System.Transactions;
 
 
 public class Video{
 
-public string _title;
-public string _author;
-public string _length;
-public List<string> _commentList;
+private string _title;
+private string _author;
+private int _length;
+private List<Comment> _commentList;
 
-public List<string> CommentList(string title, string author, string length){
+public Video(string title, string author, int length)
+{
     _title = title;
     _author = author;
     _length = length;
-    List<string> _commentList = new();
-    _commentList.Add(_title);
-    _commentList.Add(_author);
-    _commentList.Add(_length);
-    return _commentList;
+    
 }
-
-public int NumberOfComments(){
-    int commentCounter = _commentList.Count();
+public string VideoInfo()
+{
+    return $"{_title}, {_author} {_length}seconds";
+}
+public void StoreComments(string name, string text)
+{
+    Comment comment = new(name, text);
+    _commentList.Add(comment);
+}
+public int NumberOfComments()
+{
+    int commentCounter = 0;
+    foreach(Comment comment in _commentList){
+        commentCounter = commentCounter + 1;
+    }
     return commentCounter;
 }
 }

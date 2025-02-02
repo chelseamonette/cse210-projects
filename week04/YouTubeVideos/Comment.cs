@@ -4,16 +4,14 @@ name of the person who made the comment and the text
 of the comment. */
 using System;
 
-public class Comment(){
+public class Comment{
 
-public string _name;
-public string _text;
+private string _name;
+private string _text;
 
-public string VideoComment(string name, string text){
+public Comment(string name, string text){
     _name = name;
     _text = text;
-    
-
 }
 
 }
