@@ -14,7 +14,7 @@ public class Video{
 private string _title;
 private string _author;
 private int _length;
-
+private List<Comment> _commentList;
 
 public Video(string title, string author, int length)
 {
@@ -25,12 +25,12 @@ public Video(string title, string author, int length)
 }
 public string VideoInfo()
 {
-    return $"{_title}, {_author} {_length}seconds";
+    return $"Title: {_title}, Author: {_author} Length: {_length} seconds";
 }
-public List<Comment> StoreComments(Comment comment, Video video)
+public void StoreComments(Comment comment)
 {
-    List<Comment> commentList = new();
-    
+    _commentList = new List<Comment>();
+    _commentList.Add(comment);
 }
 public void DisplayComments(Comment comment)
 {
