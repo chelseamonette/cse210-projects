@@ -28,21 +28,24 @@ public Order(Customer customer){
 public void CreateProductList(Product product){
     _productList.Add(product);
 }
+public double ShippingCost(){
+    int cost;
+    if(_customer.LivesInUSA()){
+        cost = 5;
+    }
+    else{
+        cost = 35;
+    }
+    return cost;
+}
 public double CalculateTotalCost(){
     double productCost = 0;
     foreach(var product in _productList){
         productCost += product.ComputeTotalCost();
-        return productCost; 
     }
-    if(_customer.LivesInUSA()){
-        double costPlusShipping =  productCost + 5;
-        return costPlusShipping;
-    }
-    else{
-        double costPlusShipping = productCost + 35;
-        return costPlusShipping;
-    }
-    
+    productCost = productCost + ShippingCost();
+    return productCost;
+
 }
 public string PackingLabel(){
     
