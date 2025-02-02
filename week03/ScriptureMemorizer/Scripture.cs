@@ -35,11 +35,7 @@ public class Scripture
     public void HideRandomWords(int numberToHide){
         // Take the list of words and randomly hide words based on the 
         // numberToHide and whether or not they have been hidden already
-        for (int i = 0; i < numberToHide; i++)
-        {
-            Random r = new Random();
-            Console.WriteLine();
-        }
+        
 
     }
 

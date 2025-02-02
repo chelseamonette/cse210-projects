@@ -38,9 +38,9 @@ public class Word
        if (){
             return true;
        }
-       else if ()(
+       else if (){
             return false;
-       )
+       }
     }
 
     // GetDisplayText(): string
