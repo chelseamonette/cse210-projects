@@ -33,12 +33,13 @@ class Program
         foreach(var order in orders){
 
             Console.WriteLine($"Order Number: {orderCounter}");
-            Console.WriteLine(order);
-            foreach(var product in orders){
-                //Console.WriteLine(order.PackingLabel(product));
+            
+            foreach(var product in order.GetProductList()){
+                Console.WriteLine(order.PackingLabel(product));
+                Console.WriteLine(order.ShippingLabel(order.GetCustomer(), order.GetAddress()));
+                Console.WriteLine(order.CalculateTotalCost());
             }
-            Console.WriteLine(order.ShippingLabel(order.GetCustomer(), order.GetAddress()));
-            Console.WriteLine(order.CalculateTotalCost());
+            
             
             orderCounter = orderCounter + 1;
         }

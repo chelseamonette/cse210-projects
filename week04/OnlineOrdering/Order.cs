@@ -48,8 +48,10 @@ public string PackingLabel(Product product){
     foreach(var products in _productList){
         string productName = product.GetProductName();
         int productID = product.GetProductID();
-        
+        packingLabel += $"Name: {productName} - ID: {productID}";
     }
+    return packingLabel;
+    
     
 }
 public string ShippingLabel(Customer customer, Address address){
