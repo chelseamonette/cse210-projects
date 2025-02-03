@@ -57,16 +57,22 @@ class Program
             Console.WriteLine(scriptureShort.GetDisplayText());
 
             // Prompt the user to press the enter key or type to quit.
-            Console.WriteLine("Press enter to continue or type 'quit' to finish:");
-            string userChoice = Console.ReadLine().ToLower();
+            Console.Write("Press enter to continue or type 'quit' to finish:");
+            string userChoice = Console.ReadLine();
                 
             
 
-            // Add while loop to continue to display scripture until all words are hidden
+            //If the user types quit, the program should end.  
             if(userChoice == "quit"){
                 break;
-            }
-            else if(userChoice == ""){
+            } 
+            // 6.If the user presses the enter key (without typing quit), 
+            // the program should hide a few random words in the scripture, 
+            // clear the console screen, and display the scripture again. 
+            // (Hiding a word means that the word should be replace by 
+            // underscores (_) and the number of underscores should match 
+            // the number of letters in that word.)
+            else if(userChoice == " "){
 
                 scriptureShort.HideRandomWords(3);
                 
@@ -74,10 +80,8 @@ class Program
                     Console.WriteLine("Congratulations! You have successfully memmorized your scriptures!");
                     break;  
                 }
-                
-                
             }
+            
         } 
-         
     }
 }
