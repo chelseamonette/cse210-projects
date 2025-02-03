@@ -2,7 +2,7 @@
 // shown or hidden.
 
 using System;
-using System.Threading.Tasks.Dataflow;
+
 
 public class Word
 {
@@ -15,6 +15,7 @@ public class Word
     public Word(string text)
     {   
         _text = text;
+        _isHidden = false;
     }
 
     /*The key behaviors for the Word class are to hide and show a
@@ -23,9 +24,11 @@ public class Word
       which would be either the word itself (for example, "prayer") 
       or, if the word were hidden, this behavior would return 
       underscores (for example, "______").*/
+  
     // HideWord(): void
     public void HideWord(){
-        Console.Write("");
+        string hiddenWord = new string('_',_text.Length);
+        Console.Write(hiddenWord);
     }
 
     // ShowWord(): void
@@ -33,24 +36,18 @@ public class Word
         Console.Write(_text);
     }
 
-    // IsHidden(): bool
+      // IsHidden(): bool
     public bool IsHidden(){
-        if (_text == _text){
-            return false;
-        }
-        else{
-            return true;
-        }
+       return true;
     }
 
     // GetDisplayText(): string
     public string GetDisplayText(){
         if (IsHidden()){
-            string hiddenWord = new string('_',_text.Length);
-            return hiddenWord;
+           return _text.HideWord();
         }
         else{
-            return _text;
+            return _text.ShowWord();;
         }
     }
     public string GetText(){
