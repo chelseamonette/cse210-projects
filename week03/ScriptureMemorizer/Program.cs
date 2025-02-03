@@ -48,46 +48,36 @@ class Program
 
         
         // Create while loop to Clear screen and start program
-        string userChoice = "";
-        while(userChoice!="quit"){
+        
+        while(true){
 
             // Clear the console screen and display the complete scripture
             Console.Clear();
-            Console.Write(referenceShort.GetDisplayText());
+            Console.Write($"{referenceShort.GetDisplayText()} ");
             Console.WriteLine(scriptureShort.GetDisplayText());
 
-           
+            // Prompt the user to press the enter key or type to quit.
+            Console.WriteLine("Press enter to continue or type 'quit' to finish:");
+            string userChoice = Console.ReadLine().ToLower();
+                
             
 
             // Add while loop to continue to display scripture until all words are hidden
-            while(!scriptureShort.CompletelyHidden()){
+            if(userChoice == "quit"){
+                break;
+            }
+            else if(userChoice == ""){
 
-                // Clear console screen and display the scripture with hidden words
-                Console.Clear();
-                Console.Write(referenceShort.GetDisplayText());
-                Console.WriteLine(scriptureShort.GetDisplayText());
-
+                scriptureShort.HideRandomWords(3);
                 
-                // If user presses enter key without typing quit, the program
-                // should hide a few random words in scripture
-                //if (userChoice == ""){
-                
-                if (scriptureShort.CompletelyHidden() == true){
+                if (scriptureShort.CompletelyHidden()){
                     Console.WriteLine("Congratulations! You have successfully memmorized your scriptures!");
                     break;  
                 }
-                else{
-                    // Prompt the user to press the enter key or type to quit.
-                    Console.WriteLine("Press enter to continue or type 'quit' to finish:");
-                    userChoice = Console.ReadLine();
-                }  
-                scriptureShort.HideRandomWords(3);
-            }
-
-            // If the user types quit, the program should end
-            if (userChoice == "quit" || userChoice == "Quit"){
-                break;
+                
+                
             }
         } 
+         
     }
 }
