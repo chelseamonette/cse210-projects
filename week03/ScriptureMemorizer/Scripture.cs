@@ -9,15 +9,15 @@ public class Scripture
     //Declare variables
     private Reference _reference;
     private List<Word> _words;
-    private Random _random;
+
     
 
     // Constructor that accepts both a reference and
     // the text of the scripture
     public Scripture(Reference reference, string text)
     {
-        _random = new Random();
         _reference = reference;
+        _words = new List<Word>();
         string[] wordObj = text.Split(' ');
         foreach(var word in wordObj){
             _words.Add(new Word(word));
@@ -44,7 +44,7 @@ public class Scripture
         var hiddernWords = _words;
         while (x<numberToHide){
             do{
-            index = _random.Next(_words.Count);
+            index = rand.Next(_words.Count);
 
             }while (_words[index].IsHidden());
 
