@@ -32,20 +32,55 @@
 // hidden. (As a stretch challenge, try to randomly select from only 
 // those words that are not already hidden.)
 
+//For creativity we are going to ask the user if they would like to input a scripture
+
 using System;
 
 class Program
 {
     static void Main(string[] args)
     {
-        // Store scripture
-        Reference referenceShort = new Reference("D&C", 10, 5);
-        Scripture scriptureShort = new Scripture(referenceShort, "Pray always, that you may come off conqueror; yea, that you may conquer Satan, and that you may escape the hands of the servants of Satan that do uphold his work.");
+        Reference reference = null;
+        Scripture scripture = null;
 
-        // Accomodate scriptures with multiple verses
-        Reference referenceLong = new Reference("Matthew", 11, 28, 30);
-        Scripture scriptureLong = new Scripture(referenceLong, "Come unto me, all ye that labour and are heacy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.");
+        // For creativity we are going to ask if the user would like to input a scripture
+        Console.Write("Would you like to input your own scripture to memorize?(Y/N) ");
+        string yesOrNo = Console.ReadLine();
 
+       
+        
+        if (yesOrNo == "Y" || yesOrNo == "y"){
+            Console.Write("What is the book? ");
+            string book = Console.ReadLine();
+            Console.Write("What is the chapter? ");
+            int chapter = int.Parse(Console.ReadLine());
+            Console.Write("Which verse would you like? ");
+            int verse = int.Parse(Console.ReadLine());
+            reference = new Reference(book, chapter, verse);
+
+            Console.Write("Enter the scripture: ");
+            string text = Console.ReadLine();
+            scripture = new Scripture(reference, text);
+        }
+        else{
+            Console.WriteLine("Would you like a long or short scripture?(long/short)");
+            string longOrShort = Console.ReadLine().ToLower();
+            // Store scripture
+            Reference referenceShort = new Reference("D&C", 10, 5);
+            Scripture scriptureShort = new Scripture(referenceShort, "Pray always, that you may come off conqueror; yea, that you may conquer Satan, and that you may escape the hands of the servants of Satan that do uphold his work.");
+
+            // Accomodate scriptures with multiple verses
+            Reference referenceLong = new Reference("Matthew", 11, 28, 30);
+            Scripture scriptureLong = new Scripture(referenceLong, "Come unto me, all ye that labour and are heacy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.");
+            if (longOrShort == "short"){
+                reference = referenceShort;
+                scripture = scriptureShort;
+            }
+            else if(longOrShort == "long"){
+                reference = referenceLong;
+                scripture = scriptureLong;
+            }
+        }
         
         // Create while loop to Clear screen and start program
         
@@ -53,9 +88,9 @@ class Program
 
             // Clear the console screen and display the complete scripture
             Console.Clear();
-            Console.Write($"{referenceShort.GetDisplayText()} ");
-            Console.WriteLine(scriptureShort.GetDisplayText());
-
+            Console.Write($"{reference.GetDisplayText()} ");
+            Console.WriteLine(scripture.GetDisplayText());
+            
             // Prompt the user to press the enter key or type to quit.
             Console.Write("Press enter to continue or type 'quit' to finish:");
             string userChoice = Console.ReadLine();
@@ -74,9 +109,9 @@ class Program
             // the number of letters in that word.)
             else if(userChoice == ""){
 
-                scriptureShort.HideRandomWords(3);
+                scripture.HideRandomWords(3);
                 
-                if (scriptureShort.CompletelyHidden()){
+                if (scripture.CompletelyHidden()){
                     Console.WriteLine("Congratulations! You have successfully memmorized your scriptures!");
                     break;  
                 }
