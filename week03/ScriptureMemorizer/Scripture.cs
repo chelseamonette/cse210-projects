@@ -44,7 +44,7 @@ public class Scripture
         var hiddernWords = _words;
         while (x<numberToHide){
             int index = _random.Next(_words.Count);
-            if (hiddernWords[index])
+            if (hiddenWords[index])
             
             x++;
         }

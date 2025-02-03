@@ -27,13 +27,14 @@ public class Word
   
     // HideWord(): void
     public void HideWord(){
-        string hiddenWord = new string('_',_text.Length);
-        Console.Write(hiddenWord);
+        _isHidden = true;
+        //string hiddenWord = new string('_',_text.Length);
+        //Console.Write(hiddenWord);
     }
 
     // ShowWord(): void
     public void ShowWord(){
-        Console.Write(_text);
+        _isHidden = false;
     }
 
       // IsHidden(): bool
@@ -43,12 +44,7 @@ public class Word
 
     // GetDisplayText(): string
     public string GetDisplayText(){
-        if (IsHidden()){
-           return _text.HideWord();
-        }
-        else{
-            return _text.ShowWord();;
-        }
+        return _isHidden ? new string('_', _text.Length) : _text;
     }
     public string GetText(){
         return _text;
