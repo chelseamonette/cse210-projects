@@ -39,7 +39,7 @@ public class Word
 
       // IsHidden(): bool
     public bool IsHidden(){
-       return true;
+       return _isHidden;
     }
 
     // GetDisplayText(): string

@@ -41,16 +41,16 @@ public class Scripture
         Random rand = new Random();
         int x = 0;
         int index;
-        var hiddernWords = _words;
-        while (x<numberToHide){
-            do{
+        while (x < numberToHide){
+            
             index = rand.Next(_words.Count);
 
-            }while (_words[index].IsHidden());
+            if(!_words[index].IsHidden()){
 
             _words[index].HideWord();
             
             x++;
+            }
         }
         
 
@@ -62,18 +62,16 @@ public class Scripture
         foreach(var word in _words){
             scriptureWords.Add(word.GetDisplayText());
         }
-        return string.Join(' ', scriptureWords);
+        return string.Join(" ", scriptureWords);
     }
 
     // CompletelyHidden(): bool
     public bool CompletelyHidden(){
         foreach (var word in _words){
-            if (word.IsHidden()){
-                return true;
-            }
-            else{
+            if (!word.IsHidden()){
                 return false;
             }
+            
         }
         return true;
 

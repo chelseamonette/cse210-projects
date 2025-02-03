@@ -72,7 +72,7 @@ class Program
             // (Hiding a word means that the word should be replace by 
             // underscores (_) and the number of underscores should match 
             // the number of letters in that word.)
-            else if(userChoice == " "){
+            else if(userChoice == ""){
 
                 scriptureShort.HideRandomWords(3);
                 

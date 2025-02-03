@@ -2,8 +2,6 @@
 // information
 
 using System;
-using System.Data;
-using System.Security.Cryptography;
 
 public class Reference
 {
