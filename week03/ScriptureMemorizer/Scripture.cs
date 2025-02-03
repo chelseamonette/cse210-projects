@@ -19,7 +19,7 @@ public class Scripture
         _random = new Random();
         _reference = reference;
         string[] wordObj = text.Split(' ');
-        foreach(string word in wordObj){
+        foreach(var word in wordObj){
             _words.Add(new Word(word));
         }
         
