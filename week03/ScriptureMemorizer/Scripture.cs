@@ -16,7 +16,10 @@ public class Scripture
     {
         _reference = reference;
         string[] words = text.Split(" ");
-        
+        foreach(string word in words){
+            Word w = new Word(word);
+            _words.Add(w);
+        }
         
    
     }
@@ -35,16 +38,17 @@ public class Scripture
         // numberToHide and whether or not they have been hidden already
         Random rand = new Random();
         int x = 1;
+        var hiddernWords = _words.
         while (x<numberToHide){
-            int wordToHide = _words[rand.Next(0, _words.Length())];
+            int wordToHide = rand.Next(_words.Count);
         }
-        
+        foreach(Word in )
 
     }
 
     // GetDisplayText(): string
     public string GetDisplayText(){
-        ;
+        return "";
     }
 
     // CompletelyHidden(): bool

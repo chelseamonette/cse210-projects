@@ -46,38 +46,48 @@ class Program
         Reference referenceLong = new Reference("Matthew", 11, 28, 30);
         Scripture scriptureLong = new Scripture(referenceLong, "Come unto me, all ye that labour and are heacy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.");
 
+        
         // Create while loop to Clear screen and start program
-        while(true){
+        string userChoice = "";
+        while(userChoice!="quit"){
 
             // Clear the console screen and display the complete scripture
             Console.Clear();
+            Console.Write(referenceShort.GetDisplayText());
             Console.WriteLine(scriptureShort.GetDisplayText());
+
+           
+            
 
             // Add while loop to continue to display scripture until all words are hidden
             while(!scriptureShort.CompletelyHidden()){
 
                 // Clear console screen and display the scripture with hidden words
                 Console.Clear();
+                Console.Write(referenceShort.GetDisplayText());
                 Console.WriteLine(scriptureShort.GetDisplayText());
 
-                // Prompt the user to press the enter key or type to quit.
-                Console.WriteLine("Press enter to continue or type 'quit' to finish:");
-                string userChoice = Console.ReadLine();
-
-                // If the user types quit, the program should end
-                if (userChoice == "quit" || userChoice == "Quit"){
-                    break;
-                }
+                
                 // If user presses enter key without typing quit, the program
                 // should hide a few random words in scripture
-                else if (userChoice == ""){
-                    scriptureShort.HideRandomWords(3);
-
-                    
+                //if (userChoice == ""){
+                
+                if (scriptureShort.CompletelyHidden() == true){
+                    Console.WriteLine("Congratulations! You have successfully memmorized your scriptures!");
+                    break;  
                 }
+                else{
+                    // Prompt the user to press the enter key or type to quit.
+                    Console.WriteLine("Press enter to continue or type 'quit' to finish:");
+                    userChoice = Console.ReadLine();
+                }  
+                scriptureShort.HideRandomWords(3);
+            }
+
+            // If the user types quit, the program should end
+            if (userChoice == "quit" || userChoice == "Quit"){
                 break;
             }
-        }
-        
+        } 
     }
 }
