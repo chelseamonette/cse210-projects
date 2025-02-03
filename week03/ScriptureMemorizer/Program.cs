@@ -54,7 +54,7 @@ class Program
             Console.WriteLine(scriptureShort.GetDisplayText());
 
             // Add while loop to continue to display scripture until all words are hidden
-            while(scriptureShort.CompletelyHidden() == false){
+            while(!scriptureShort.CompletelyHidden()){
 
                 // Clear console screen and display the scripture with hidden words
                 Console.Clear();
@@ -73,12 +73,9 @@ class Program
                 else if (userChoice == ""){
                     scriptureShort.HideRandomWords(3);
 
-                    // Once all words have been hidden, quit program
-                    if (scriptureShort.CompletelyHidden()){
-                        break;
-                    }
+                    
                 }
-                
+                break;
             }
         }
         

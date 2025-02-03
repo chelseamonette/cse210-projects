@@ -2,6 +2,7 @@
 // shown or hidden.
 
 using System;
+using System.Threading.Tasks.Dataflow;
 
 public class Word
 {
@@ -24,23 +25,22 @@ public class Word
       underscores (for example, "______").*/
     // HideWord(): void
     public void HideWord(){
-        _isHidden = true;
-        
+        Console.Write("");
     }
 
     // ShowWord(): void
     public void ShowWord(){
-        _isHidden = false;
+        Console.Write(_text);
     }
 
     // IsHidden(): bool
     public bool IsHidden(){
-       if (){
-            return true;
-       }
-       else if (){
+        if (_text == _text){
             return false;
-       }
+        }
+        else{
+            return true;
+        }
     }
 
     // GetDisplayText(): string
@@ -52,5 +52,8 @@ public class Word
         else{
             return _text;
         }
+    }
+    public string GetText(){
+        return _text;
     }
 }

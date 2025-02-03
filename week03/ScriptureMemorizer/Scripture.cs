@@ -16,11 +16,9 @@ public class Scripture
     {
         _reference = reference;
         string[] words = text.Split(" ");
-        List<Word> _words = new List<Word>();
-        foreach(string word in words){
-            _words.Add(word);
-        }
-
+        
+        
+   
     }
 
     /*The key behaviors for the Scripture class are to hide 
@@ -35,6 +33,11 @@ public class Scripture
     public void HideRandomWords(int numberToHide){
         // Take the list of words and randomly hide words based on the 
         // numberToHide and whether or not they have been hidden already
+        Random rand = new Random();
+        int x = 1;
+        while (x<numberToHide){
+            int wordToHide = _words[rand.Next(0, _words.Length())];
+        }
         
 
     }

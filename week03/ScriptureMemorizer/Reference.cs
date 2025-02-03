@@ -31,29 +31,5 @@ public class Reference
         return $"{_book} {_chapter}:{_verse}-{_endVerse}";
     }
 
-    // Possible getters and setters
-    public string GetBook(){
-        return _book;
-    }
-    public void SetBook(string book){
-        _book = book;
-    }
-    public int GetChapter(){
-        return _chapter;
-    }
-    public void SetChapter(int chapter){
-        _chapter = chapter;
-    }
-    public int GetVerse(){
-        return _verse;
-    }
-    public void SetVerse(int verse){
-        _verse = verse;
-    }
-    public int GetEndVerse(){
-        return _endVerse;
-    }
-    public void SetEndVerse(int endVerse){
-        _endVerse = endVerse;
-    }
+  
 }
