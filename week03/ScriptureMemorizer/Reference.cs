@@ -2,6 +2,8 @@
 // information
 
 using System;
+using System.Data;
+using System.Security.Cryptography;
 
 public class Reference
 {
@@ -15,19 +17,20 @@ public class Reference
     // a single verse or multiple verses.
     public Reference(string book, int chapter, int verse)
     {
-        book = _book;
-        chapter = _chapter;
-        verse = _verse;
+        _book = book;
+        _chapter = chapter;
+        _verse = verse;
     }
     public Reference(string book, int chapter, int startVerse, int endVerse)
     {
-        book = _book;
-        chapter = _chapter;
-        startVerse = _verse;
-        endVerse = _endVerse;
+        _book = book;
+        _chapter = chapter;
+        _verse = startVerse;
+        _endVerse = endVerse;
     }
     // GetDisplayText(): string
     public string GetDisplayText(){
+
         return $"{_book} {_chapter}:{_verse}-{_endVerse}";
     }
 
