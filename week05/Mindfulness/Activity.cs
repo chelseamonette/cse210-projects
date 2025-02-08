@@ -22,8 +22,6 @@ public class Activity{
         string seconds = Console.ReadLine();
         _duration = int.Parse(seconds);
         Console.Clear();
-        // Show spinner
-        ShowSpinner(3);
         // Get Ready and spinner
         Console.WriteLine("Get Ready...");
         ShowSpinner(5);
@@ -81,6 +79,7 @@ public class Activity{
             Console.Write("\b \b");
 
         }
+        Console.WriteLine();
 
     }
 }
