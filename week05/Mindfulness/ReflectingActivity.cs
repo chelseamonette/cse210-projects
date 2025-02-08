@@ -2,7 +2,7 @@ using System;
 public class ReflectingActivity : Activity{
     private List<string> _prompts;
     private List<string> _questions;
-    public ReflectingActivity(string name, string description, int duration) : base(name, description, duration){
+    public ReflectingActivity(string name, string description) : base(name, description){
         List<string> _questions = new();
         _questions.Add("How did you feel when it was complete?");
         _questions.Add("What was your favorite thing about this experience?");

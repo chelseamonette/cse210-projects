@@ -3,7 +3,7 @@ using System.Threading.Tasks.Dataflow;
 public class ListingActivity : Activity{
     private int _count;
     private List<string> _prompts;
-    public ListingActivity(string name, string description, int duration, int count) : base(name, description, duration){
+    public ListingActivity(string name, string description, int count) : base(name, description){
         _count = count;
         List<string> _prompts = new();
         _prompts.Add("When was the last time you felt the Holy Ghost?");
