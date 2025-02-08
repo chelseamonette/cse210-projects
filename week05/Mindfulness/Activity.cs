@@ -20,6 +20,16 @@ public class Activity{
         Console.Clear();
         ShowSpinner(3);
         Console.WriteLine("Get Ready...");
+        ShowSpinner(5);
+        Console.Clear();
+        Console.WriteLine();
+        Console.WriteLine();
+
+    }
+    public void DisplayEndingMessage(){
+        Console.WriteLine("");
+    }
+    public void ShowSpinner(int seconds){
         List<string> animationString = new();
         animationString.Add("|");
         animationString.Add("/");
@@ -30,20 +40,25 @@ public class Activity{
         animationString.Add("-");
         animationString.Add("\\");
         
-        foreach (string s in animationString){
-            
-           Console.Write(s);
-           Thread.Sleep(250);
-           Console.Write("\b \b");
-        }
-        Console.WriteLine();
-        Console.WriteLine();
 
-    }
-    public void DisplayEndingMessage(){
-        Console.WriteLine("");
-    }
-    public void ShowSpinner(int seconds){
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(seconds);
+
+        int i = 0;
+
+        while (DateTime.Now < endTime){
+
+            string s = animationString[i];
+            Console.Write(s);
+            Thread.Sleep(250);
+            Console.Write("\b \b");
+
+            i ++;
+
+            if (i >= animationString.Count){
+                i = 0;
+            }
+        }
 
     }
     public void ShowCountDown(int seconds){
