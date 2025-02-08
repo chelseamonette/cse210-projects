@@ -9,27 +9,39 @@ public class Activity{
         
     }
     public void DisplayStartingMessage(){
+        // CLear the console and display message
         Console.Clear();
         Console.WriteLine($"Welcome to the {_name}.");
+        // Blank line and description
         Console.WriteLine();
         Console.WriteLine(_description);
+        // Blank line and prompt for duration
         Console.WriteLine();
         Console.Write("How long, in seconds, would you like for you session? ");
+        // Convert input into string
         string seconds = Console.ReadLine();
         _duration = int.Parse(seconds);
         Console.Clear();
+        // Show spinner
         ShowSpinner(3);
+        // Get Ready and spinner
         Console.WriteLine("Get Ready...");
         ShowSpinner(5);
-        Console.Clear();
+        // White space
         Console.WriteLine();
         Console.WriteLine();
 
     }
     public void DisplayEndingMessage(){
-        Console.WriteLine("");
+        Console.WriteLine("Well Done!!");
+        ShowSpinner(5);
+        Console.WriteLine();
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_name}");
+        ShowSpinner(5);
+        Console.Clear();
     }
     public void ShowSpinner(int seconds){
+        // Put the animation it a string of objects
         List<string> animationString = new();
         animationString.Add("|");
         animationString.Add("/");
@@ -40,12 +52,13 @@ public class Activity{
         animationString.Add("-");
         animationString.Add("\\");
         
-
+        // Use datetime to display spinner for a certain amount of time
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(seconds);
 
         int i = 0;
 
+        // Display spinner for specified time
         while (DateTime.Now < endTime){
 
             string s = animationString[i];
