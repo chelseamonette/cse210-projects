@@ -49,7 +49,11 @@ public class Journal
         // same Write() and WriteLine() methods the same as Console.Write()
         using(StreamWriter outputFile = new StreamWriter(fileName))
         {
-            outputFile.WriteLine(_entries);
+            foreach (Entry entry in _entries){
+
+                outputFile.WriteLine($"{entry._date}|{entry._mood}|{entry._promptText}|{entry._entryText}");
+            }
+            
         }
 
     }
@@ -61,8 +65,21 @@ public class Journal
         Console.WriteLine("Name of the .txt file that you would like ");
         fileName = Console.ReadLine();
 
+        if (!File.Exists(fileName)){
+            Console.WriteLine("File not found.");
+            return;
+        }
         // Use the "System.IO.File.ReadAllLines()" function to read file.
-        string[] lines = System.IO.File.ReadAllLines(fileName);
-
+        string[] lines = File.ReadAllLines(fileName);
+        
+        foreach(string line in lines){
+            string[] parts = line.Split('|');
+            if (parts.Length == 4){
+                Entry entry = new Entry(parts[2], parts[3], parts[1]);
+                entry._date = parts[0];
+                _entries.Add(entry);
+            }
+        }
+        Console.WriteLine("Journal loaded successfully.");
     }
 }

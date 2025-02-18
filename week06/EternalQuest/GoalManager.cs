@@ -1,5 +1,5 @@
 using System;
-using System.Runtime.CompilerServices;
+using System.IO;
 public class GoalManager{
     private List<Goal> _goals;
     private int _score;
@@ -37,7 +37,7 @@ public class GoalManager{
             else if(userChoice == "6"){
                 break;
             }
-            DisplayPlayerInfo();
+            
         }
 
     }
@@ -61,9 +61,8 @@ public class GoalManager{
     public void ListGoalDetails(){
         Console.WriteLine("The goals are: ");
         foreach (Goal goal in _goals){
-            goal.GetDetailsString();
+            Console.WriteLine(goal.GetDetailsString());
         }
-
     }
     // Asks the user for the information about a new goal. 
     // Then, creates the goal and adds it to the list.
@@ -84,6 +83,7 @@ public class GoalManager{
             string input = Console.ReadLine();
             int points = int.Parse(input);
             SimpleGoal simpleGoal = new(name, description, points);
+            _goals.Add(simpleGoal);
         }   
         else if (userChoice == "2"){
             Console.Write("What is the name of your goal.");
@@ -94,6 +94,7 @@ public class GoalManager{
             string input = Console.ReadLine();
             int points = int.Parse(input);
             EternalGoal eternalGoal = new(name, description, points);
+            _goals.Add(eternalGoal);
         }
         else if (userChoice == "3"){
              Console.Write("What is the name of your goal.");
@@ -110,20 +111,57 @@ public class GoalManager{
             string bonusInput = Console.ReadLine();
             int bonus = int.Parse(bonusInput);
             ChecklistGoal checklistGoal = new(name, description, points, target, bonus);
+            _goals.Add(checklistGoal);
         }
 
     }
    //  Asks the user which goal they have done and then records 
     // the event by calling the RecordEvent method on that goal.
     public void RecordEvent(){
+        Console.WriteLine("The goals are:");
+        foreach (Goal goal in _goals){
+            goal.RecordEvent();
+        }
 
     }
     // Saves the list of goals to a file.
     public void SaveGoals(){
-        
+        Console.Write("What is the filename for the goal file? ");
+        string fileName = Console.ReadLine();
+
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            foreach(Goal goal in _goals){
+                string goalString = goal.GetStringRepresentation();
+                outputFile.WriteLine(goalString);
+            }
+        }
     }
     // Loads the list of goals from a file.
     public void LoadGoals(){
+        Console.Write("What is the filename for the goal file? ");
+        string goalFile = Console.ReadLine();
 
+        string [] lines = File.ReadAllLines(goalFile);
+
+        foreach(string line in lines){
+        string [] parts = line.Split('|');
+        string goalType = parts[0];
+
+            if (goalType == "SimpleGoal"){
+                string pointsString = parts[3];
+                _goals.Add(new SimpleGoal(parts[1], parts[2], int.Parse(pointsString)));
+            }
+            else if (goalType == "EternalGoal"){
+                string pointsString = parts[3];
+                _goals.Add(new EternalGoal(parts[1], parts[2], int.Parse(pointsString)));
+            }
+            if (goalType == "ChecklistGoal"){
+                string pointsString = parts[3];
+                string targetString = parts[4];
+                string bonusString = parts[5];
+                _goals.Add(new ChecklistGoal(parts[1], parts[2], int.Parse(pointsString), int.Parse(targetString), int.Parse(bonusString)));
+            }
+        }
     }
 }
