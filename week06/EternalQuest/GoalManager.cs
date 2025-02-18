@@ -161,9 +161,9 @@ public class GoalManager{
         Console.Write("Which goal did you accomplish? ");
         int goalChoice = int.Parse(Console.ReadLine());
         Goal chosenGoal = _goals[goalChoice - 1];
-        int runningTotal = _score;
-        chosenGoal.RecordEvent();
-        runningTotal += chosenGoal.RecordEvent();
+        int runningTotal = chosenGoal.RecordEvent();
+        _score += runningTotal;
+        Console.WriteLine($"You have {_score} points");
     }
     // Saves the list of goals to a file.
     public void SaveGoals(){

@@ -41,12 +41,9 @@ public class ChecklistGoal : Goal{
     // class, it should be overridden to shown the number of times 
     // the goal has been accomplished so far.
     public override string GetDetailsString(){
-        string checkbox;
+        string checkbox = "[ ]";
         if (IsComplete()){
             checkbox = "[√]";
-        }
-        else{
-            checkbox = "[ ]";
         }
         return $"{checkbox} {_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
     }
