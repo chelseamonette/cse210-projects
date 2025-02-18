@@ -35,6 +35,10 @@
 // Allow the user's goals and their current score to be saved and 
 // loaded.
 
+// I am going to show creativity by adding different levels based on your score
+// The levels are going to be named after different gemstones ranging
+// in value.  The highest score is going to be 10,000 points.
+
 using System;
 using System.IO;
 public class GoalManager{
@@ -79,8 +83,18 @@ public class GoalManager{
 
     }
     // Displays the players current score.
+    // Adding my creativity to this method.
     public void DisplayPlayerInfo(){
         Console.WriteLine($"You have {_score} points.");
+
+        // Adding creativity
+        string[] gemStones = new string[]{
+            "Amethyst", "Garnet", "Topaz", "Emerald", "Sapphire", "Ruby", "Diamond", "Opal", "Aquamarine", "Jade", "Peridot", "Tourmaline", "Tanzanite", "Citrine", "Moonstone", "Lapis", "Amber", "Turquoise", "Alexandrite", "Onyx", "Blookstone", "Obsidian"
+        };
+        int gemstoneIndex = _score / 500;
+        gemstoneIndex = gemstoneIndex -1;
+        string gemstoneName = gemStones[gemstoneIndex];
+        Console.WriteLine($"Congrats!  Your current level is: {gemstoneName}");
     }
     // Lists the names of each of the goals.
     public void ListGoalName(){
