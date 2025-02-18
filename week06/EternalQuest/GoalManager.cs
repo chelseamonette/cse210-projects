@@ -119,10 +119,13 @@ public class GoalManager{
     // the event by calling the RecordEvent method on that goal.
     public void RecordEvent(){
         Console.WriteLine("The goals are:");
+        int goalNumber = 0;
         foreach (Goal goal in _goals){
-            goal.RecordEvent();
+            Console.WriteLine($"{goalNumber + 1}. {goal}");
         }
-
+        Console.Write("Which foal did you accomplish? ");
+        string goalChoice = Console.ReadLine();
+        
     }
     // Saves the list of goals to a file.
     public void SaveGoals(){

@@ -12,6 +12,7 @@ public class SimpleGoal : Goal{
     // may contain a bonus in some cases if a checklist goal was 
     // just finished, for example).
     public override void RecordEvent(){
+        
 
     }
     // This method should return true if the goal is completed. 
