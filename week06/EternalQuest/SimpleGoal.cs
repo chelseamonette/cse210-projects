@@ -12,7 +12,11 @@ public class SimpleGoal : Goal{
     // may contain a bonus in some cases if a checklist goal was 
     // just finished, for example).
     public override void RecordEvent(){
-        
+        IsComplete();
+        int runningTotal = 0;
+        int totalPoints = runningTotal + _points;
+        Console.WriteLine($"Congratulations! You have earned {_points} points");
+        Console.WriteLine($"You now have {runningTotal} points.");
 
     }
     // This method should return true if the goal is completed. 

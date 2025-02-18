@@ -123,9 +123,9 @@ public class GoalManager{
         foreach (Goal goal in _goals){
             Console.WriteLine($"{goalNumber + 1}. {goal}");
         }
-        Console.Write("Which foal did you accomplish? ");
-        string goalChoice = Console.ReadLine();
-        
+        Console.Write("Which goal did you accomplish? ");
+        int goalChoice = int.Parse(Console.ReadLine());
+        _goals[goalChoice - 1].RecordEvent();
     }
     // Saves the list of goals to a file.
     public void SaveGoals(){
