@@ -12,7 +12,8 @@ public EternalGoal(string name, string description, int points) : base(name, des
     // just finished, for example).
     public override int RecordEvent()
     {
-        IsComplete();
+        Console.WriteLine($"Congratulations! You have earned {_points} points");
+        return _points;
     }
     // This method should return true if the goal is completed. 
     // The way you determine if a goal is complete is different 

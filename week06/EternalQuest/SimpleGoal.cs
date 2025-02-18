@@ -13,9 +13,9 @@ public class SimpleGoal : Goal{
     // just finished, for example).
     public override int RecordEvent(){
         _isComplete = true;
-        runningTotal += _points;
         Console.WriteLine($"Congratulations! You have earned {_points} points");
-        Console.WriteLine($"You now have {runningTotal} points.");
+        Console.WriteLine($"You have earned {_points} points.");
+        return _points;
 
     }
     // This method should return true if the goal is completed. 

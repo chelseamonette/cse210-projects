@@ -17,21 +17,28 @@ public class ChecklistGoal : Goal{
     // example).
     public override int RecordEvent()
     {
+        int runningTotal = _points;
         if (_amountCompleted < _target){
             _amountCompleted++;
             Console.WriteLine($"Congratulations! You have scored {_points} points!");
             if (_amountCompleted == _target){
-                Console.WriteLine($"Congratulations! You have scored {_points + _bonus} points!");
-                
+                runningTotal += _bonus;
+                Console.WriteLine($"Congratulations! You have scored {_points + _bonus} points!");   
             }
         }
+        return runningTotal;
     }
     // This method should return true if the goal is completed. 
     // The way you determine if a goal is complete is different 
     // for each type of goal.
     public override bool IsComplete()
     {
-        return true;
+        if(_amountCompleted >= _target){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     // This method should return the details of a goal that could 
     // be shown in a list. It should include the checkbox, the short 
