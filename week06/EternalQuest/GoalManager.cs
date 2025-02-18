@@ -91,8 +91,7 @@ public class GoalManager{
         string[] gemStones = new string[]{
             "Amethyst", "Garnet", "Topaz", "Emerald", "Sapphire", "Ruby", "Diamond", "Opal", "Aquamarine", "Jade", "Peridot", "Tourmaline", "Tanzanite", "Citrine", "Moonstone", "Lapis", "Amber", "Turquoise", "Alexandrite", "Onyx", "Blookstone", "Obsidian"
         };
-        int gemstoneIndex = _score / 500;
-        gemstoneIndex = gemstoneIndex -1;
+        int gemstoneIndex = Math.Min(_score / 500, gemStones.Length - 1);
         string gemstoneName = gemStones[gemstoneIndex];
         Console.WriteLine($"Congrats!  Your current level is: {gemstoneName}");
     }
