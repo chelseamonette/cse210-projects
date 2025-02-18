@@ -33,12 +33,7 @@ public class ChecklistGoal : Goal{
     // for each type of goal.
     public override bool IsComplete()
     {
-        if(_amountCompleted >= _target){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return _amountCompleted >= _target;
     }
     // This method should return the details of a goal that could 
     // be shown in a list. It should include the checkbox, the short 
@@ -46,12 +41,12 @@ public class ChecklistGoal : Goal{
     // class, it should be overridden to shown the number of times 
     // the goal has been accomplished so far.
     public override string GetDetailsString(){
-        string checkbox = "[ ]";
+        string checkbox;
         if (IsComplete()){
             checkbox = "[√]";
         }
         else{
-            return checkbox;
+            checkbox = "[ ]";
         }
         return $"{checkbox} {_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
     }
