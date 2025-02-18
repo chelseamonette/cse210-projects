@@ -59,9 +59,11 @@ public class GoalManager{
     // Lists the details of each goal (including the checkbox 
     // of whether it is complete).
     public void ListGoalDetails(){
-        Console.WriteLine("The goals are: ");
+        Console.WriteLine("The goals are:");
+        int goalNumber = 0;
         foreach (Goal goal in _goals){
-            Console.WriteLine(goal.GetDetailsString());
+            Console.WriteLine($"{goalNumber + 1}. {goal.GetDetailsString()}");
+            goalNumber ++;
         }
     }
     // Asks the user for the information about a new goal. 
@@ -118,14 +120,13 @@ public class GoalManager{
    //  Asks the user which goal they have done and then records 
     // the event by calling the RecordEvent method on that goal.
     public void RecordEvent(){
-        Console.WriteLine("The goals are:");
-        int goalNumber = 0;
-        foreach (Goal goal in _goals){
-            Console.WriteLine($"{goalNumber + 1}. {goal.GetDetailsString}");
-        }
+        ListGoalDetails();
         Console.Write("Which goal did you accomplish? ");
         int goalChoice = int.Parse(Console.ReadLine());
-        _goals[goalChoice - 1].RecordEvent();
+        Goal chosenGoal = _goals[goalChoice - 1];
+        int runningTotal = _score;
+        chosenGoal.RecordEvent();
+        _score += runningTotal;
     }
     // Saves the list of goals to a file.
     public void SaveGoals(){
@@ -159,7 +160,7 @@ public class GoalManager{
                 string pointsString = parts[3];
                 _goals.Add(new EternalGoal(parts[1], parts[2], int.Parse(pointsString)));
             }
-            if (goalType == "ChecklistGoal"){
+            else if (goalType == "ChecklistGoal"){
                 string pointsString = parts[3];
                 string targetString = parts[4];
                 string bonusString = parts[5];

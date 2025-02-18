@@ -12,9 +12,9 @@ public class SimpleGoal : Goal{
     // may contain a bonus in some cases if a checklist goal was 
     // just finished, for example).
     public override void RecordEvent(){
-        IsComplete();
+        _isComplete = true;
         int runningTotal = 0;
-        int totalPoints = runningTotal + _points;
+        runningTotal += _points;
         Console.WriteLine($"Congratulations! You have earned {_points} points");
         Console.WriteLine($"You now have {runningTotal} points.");
 
@@ -24,17 +24,12 @@ public class SimpleGoal : Goal{
     // for each type of goal.
     public override bool IsComplete()
     {
-        if (_isComplete){
-            return false;
-        }
-        else{
-            return true;
-        }
+       return _isComplete;
     }
     // This method should provide all of the details of a goal in 
     // a way that is easy to save to a file, and then load later.
     public override string GetStringRepresentation()
     {
-        return $"{_shortName}|{_description}|{_points}";
+        return $"SimpleGoal|{_shortName}|{_description}|{_points}";
     }
 }

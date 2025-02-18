@@ -5,14 +5,14 @@ public EternalGoal(string name, string description, int points) : base(name, des
 }
     public override void RecordEvent()
     {
-        
+        IsComplete();
     }
     public override bool IsComplete()
     {
-        return true;
+        return false;
     }
     public override string GetStringRepresentation()
     {
-        return $"{_shortName}|{_description}|{_points}";
+        return $"EternalGoal|{_shortName}|{_description}|{_points}";
     }
 }

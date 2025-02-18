@@ -16,12 +16,12 @@ public abstract class Goal{
     // class, it should be overridden to shown the number of times 
     // the goal has been accomplished so far.
     public virtual string GetDetailsString(){
-        string checkbox = "[ ]";
+        string checkbox;
         if (IsComplete()){
             checkbox = "[√]";
         }
         else{
-            return checkbox;
+            checkbox = "[ ]";
         }
         return $"{checkbox} {_shortName} ({_description})";
     }
