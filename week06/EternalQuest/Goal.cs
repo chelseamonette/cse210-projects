@@ -1,7 +1,7 @@
 using System;
 public abstract class Goal{
-    private string _shortName;
-    private string _description;
+    protected string _shortName;
+    protected string _description;
     protected int _points;
     public Goal(string name, string description, int points){
         _shortName = name;
@@ -15,7 +15,7 @@ public abstract class Goal{
     // name, and description. Then in the case of the ChecklistGoal 
     // class, it should be overridden to shown the number of times 
     // the goal has been accomplished so far.
-    public string GetDetailsString(){
+    public virtual string GetDetailsString(){
         string checkbox = "[ ]";
         if (IsComplete()){
             checkbox = "[√]";
@@ -23,7 +23,7 @@ public abstract class Goal{
         else{
             return checkbox;
         }
-        return $"1. {checkbox} {_shortName} ({_description})";
+        return $"{checkbox} {_shortName} ({_description})";
     }
     public abstract string GetStringRepresentation();
 }

@@ -121,7 +121,7 @@ public class GoalManager{
         Console.WriteLine("The goals are:");
         int goalNumber = 0;
         foreach (Goal goal in _goals){
-            Console.WriteLine($"{goalNumber + 1}. {goal}");
+            Console.WriteLine($"{goalNumber + 1}. {goal.GetDetailsString}");
         }
         Console.Write("Which goal did you accomplish? ");
         int goalChoice = int.Parse(Console.ReadLine());

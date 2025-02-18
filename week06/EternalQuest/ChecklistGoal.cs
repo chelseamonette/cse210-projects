@@ -17,10 +17,17 @@ public class ChecklistGoal : Goal{
         return true;
     }
     public override string GetDetailsString(){
-        return "";
+        string checkbox = "[ ]";
+        if (IsComplete()){
+            checkbox = "[√]";
+        }
+        else{
+            return checkbox;
+        }
+        return $"{checkbox} {_shortName} ({_description}) -- Currently completed: {0}/{_target}";
     }
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"{_shortName}|{_description}|{_points}|{_target}|{_bonus}";
     }
 }

@@ -35,6 +35,6 @@ public class SimpleGoal : Goal{
     // a way that is easy to save to a file, and then load later.
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"{_shortName}|{_description}|{_points}";
     }
 }

@@ -13,6 +13,6 @@ public EternalGoal(string name, string description, int points) : base(name, des
     }
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"{_shortName}|{_description}|{_points}";
     }
 }
