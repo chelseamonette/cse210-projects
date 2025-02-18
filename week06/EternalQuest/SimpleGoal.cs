@@ -11,9 +11,8 @@ public class SimpleGoal : Goal{
     // associated with recording the event (keep in mind that it 
     // may contain a bonus in some cases if a checklist goal was 
     // just finished, for example).
-    public override void RecordEvent(){
+    public override int RecordEvent(){
         _isComplete = true;
-        int runningTotal = 0;
         runningTotal += _points;
         Console.WriteLine($"Congratulations! You have earned {_points} points");
         Console.WriteLine($"You now have {runningTotal} points.");

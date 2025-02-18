@@ -8,7 +8,7 @@ public abstract class Goal{
         _description = description;
         _points = points;
     }
-    public abstract void RecordEvent();
+    public abstract int RecordEvent();
     public abstract bool IsComplete();
     // This method should return the details of a goal that could 
     // be shown in a list. It should include the checkbox, the short 
